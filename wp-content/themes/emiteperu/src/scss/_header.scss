@@ -1,0 +1,82 @@
+@import "utilities";
+header {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	z-index: 10;
+	transition: 0.3s;
+	.nav {
+		display: flex;
+	    align-items: center;
+	    justify-content: space-between;
+		&__left {
+			a {
+			    width: 200px;
+			    overflow: hidden;
+			    flex: none;
+			    display: flex;
+			    height: 90px;
+			    align-items: center;
+				img {
+				    width: 100%;
+				    height: auto;
+				}
+			}
+		}
+		&__right {
+			display: flex;
+	    	align-items: center;
+			ul {
+				display: flex;
+				li {
+					a {
+						display: block;
+						color: white;
+						padding: 0px 10px;
+    					font-size: 16px;
+    					font-family: 'nexa_bold';
+    					&:after {
+						    content: '.';
+						    color: $orange;
+						    margin-left: 2px;
+						}
+					}
+				}
+			}
+		}
+		&__menu {
+			margin-right: 15px;
+		}
+		&__pedido {
+
+		}
+	}
+	&.active {
+		background: white;
+		box-shadow: 0px 3px 4px rgba(76, 76, 76, 0.23);
+		.nav {
+			&__left {
+				a {
+					img {
+						&.block {
+							display: none;
+						}
+						&.hide {
+							display: block !important;
+						}
+					}
+				}
+			}
+			&__right {
+				ul {
+					li {
+						a {
+							color: $skyblue;
+						}
+					}
+				}
+			}
+		}
+	}
+}
