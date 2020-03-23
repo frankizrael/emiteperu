@@ -38,6 +38,9 @@ get_header(); ?>
 <section class="index-section">
 	<div class="x-container">
 		<div class="tags-title box">
+			<div class="ss">
+				<?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
+			</div>
 			<h3>Entérate lo último en:</h3>
 			<ul class="flex">
 				<li><a href="<?php echo site_url(); ?>/noticias">Todos</a></li>

@@ -69,13 +69,15 @@ get_header(); ?>
 				        ?>
 				        <div class="noticias__item posRelative" id="noticia_<?php echo get_the_ID(); ?>">
 							<div class="noticias__item__img posRelative">
-								<img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>">
-								<span class="noticias__item__date flex align-items-center posAbsolute">
-									<svg id="tiempo" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-									  <path id="icon" d="M2.4,2.4A7.263,7.263,0,0,1,8,0a7.263,7.263,0,0,1,5.6,2.4A7.263,7.263,0,0,1,16,8a7.263,7.263,0,0,1-2.4,5.6A7.263,7.263,0,0,1,8,16a7.263,7.263,0,0,1-5.6-2.4A7.984,7.984,0,0,1,0,8,7.263,7.263,0,0,1,2.4,2.4Zm9.2,9.2.933-.933L9.2,7.333,8,2H6.667V8a1.21,1.21,0,0,0,.4.933.466.466,0,0,0,.267.133Z"/>
-									</svg>
-									<p><?php the_field('date',get_the_ID()); ?></p>
-								</span>
+								<a href="<?php echo get_permalink(get_the_ID()); ?>">
+									<img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>">
+									<span class="noticias__item__date flex align-items-center posAbsolute">
+										<svg id="tiempo" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+										  <path id="icon" d="M2.4,2.4A7.263,7.263,0,0,1,8,0a7.263,7.263,0,0,1,5.6,2.4A7.263,7.263,0,0,1,16,8a7.263,7.263,0,0,1-2.4,5.6A7.263,7.263,0,0,1,8,16a7.263,7.263,0,0,1-5.6-2.4A7.984,7.984,0,0,1,0,8,7.263,7.263,0,0,1,2.4,2.4Zm9.2,9.2.933-.933L9.2,7.333,8,2H6.667V8a1.21,1.21,0,0,0,.4.933.466.466,0,0,0,.267.133Z"/>
+										</svg>
+										<p><?php the_field('date',get_the_ID()); ?></p>
+									</span>
+								</a>
 							</div>
 							<div class="noticias__item__content">
 								<div class="tag">
@@ -86,8 +88,8 @@ get_header(); ?>
 										}
 									?>
 								</div>
-								<div class="title title--little title--nopoint">
-									<h3><?php echo get_the_title(get_the_ID()); ?></h3>
+								<div class="title--nopoint">
+									<h3><a href="<?php echo get_permalink(get_the_ID()); ?>"><?php echo get_the_title(get_the_ID()); ?></a></h3>
 								</div>
 								<div class="linkContent">
 									<a href="<?php echo get_permalink(get_the_ID());?>" class="myLink myLink--icon myLink--red myLink--bold">Ver más <i><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">

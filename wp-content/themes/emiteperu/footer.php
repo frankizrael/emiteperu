@@ -36,6 +36,31 @@
 				</div>
 			</div>
 		</div>
+		<div class="mid_footer">
+			<div class="flex">
+				<div class="left">
+					<div class="bendita">
+						<?php
+							$lt = get_field('footer_data','option');
+							foreach ($lt as $l) {
+								?>
+						<div class="bendita__item">
+							<?php
+								echo $l['content'];
+							?>
+						</div>
+								<?php
+							}
+						?>
+					</div>
+				</div>
+				<div class="right">
+					<div class="link--a">
+						<a href="#" class="btn">Descargar Herramientas</a>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="bot_footer">
 			<div class="flex">
 				<div class="left">					

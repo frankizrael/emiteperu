@@ -3,36 +3,88 @@ set_query_var('ENTRY', 'home');
 get_header();
 ?>
 <?php get_template_part('include/nav'); ?>
-<section class="heightH init" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>');">
-	<div class="x-container heightH">
-		<div class="title">
-			<h1><?php the_title(); ?></h1>
-			<p><?php the_field('subtitle'); ?></p>
-			<a href="#" class="btn">Contáctanos</a>
-		</div>
-		<div class="social-bottom">
+<section class="heightH init" >
+	<div class="swiper-container heightH">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<div class="heightH initCore" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>');">
+					<div class="x-container heightH">
+						<div class="title">
+							<h1><?php the_title(); ?></h1>
+							<p><?php the_field('subtitle'); ?></p>
+							<a href="#" class="btn">Contáctanos</a>
+						</div>
+						<div class="social-bottom">
+							<?php
+								$social = get_field('social');
+								if ($social) {
+									?>
+								<p>Síguenos: </p>
+								<ul>
+									<?php
+									foreach ($social as $s) {
+										?>
+									<li>
+										<a href="<?php echo $s['link']; ?>">
+											<i class="fab fa-<?php echo $s['text']; ?>"></i>
+										</a>
+									</li>
+										<?php
+									}					
+									?>
+								</ul>
+								<?php
+								}
+							?>
+						</div>
+					</div>
+				</div>
+			</div>
 			<?php
-				$social = get_field('social');
-				if ($social) {
-					?>
-				<p>Síguenos: </p>
-				<ul>
-					<?php
-					foreach ($social as $s) {
-						?>
-					<li>
-						<a href="<?php echo $s['link']; ?>">
-							<i class="fab fa-<?php echo $s['text']; ?>"></i>
-						</a>
-					</li>
-						<?php
-					}					
-					?>
-				</ul>
-				<?php
+				$banner = get_field('banner');
+					if ($banner){
+						foreach($banner as $ban) {
+			?>
+				<div class="swiper-slide">
+					<div class="heightH initCore" style="background-image: url('<?php echo $ban['img']; ?>');">
+						<div class="x-container heightH">
+							<div class="title">
+								<h1><?php echo $ban['title']; ?></h1>
+								<p><?php echo $ban['subtitle']; ?></p>
+								<a href="<?php echo $ban['link']; ?>" class="btn"><?php echo $ban['link_text']; ?></a>
+							</div>
+							<div class="social-bottom">
+								<?php
+									$social = get_field('social');
+									if ($social) {
+										?>
+									<p>Síguenos: </p>
+									<ul>
+										<?php
+										foreach ($social as $s) {
+											?>
+										<li>
+											<a href="<?php echo $s['link']; ?>">
+												<i class="fab fa-<?php echo $s['text']; ?>"></i>
+											</a>
+										</li>
+											<?php
+										}					
+										?>
+									</ul>
+									<?php
+									}
+								?>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?php
+					}
 				}
 			?>
 		</div>
+		<div class="swiper-pagination"></div>
 	</div>
 </section>
 <section class="soluciones">
@@ -190,7 +242,6 @@ get_header();
 						<div class="front">
 							<div class="titleInit">
 								<h3><?php echo $service['title']; ?></h3>
-								<i></i>
 							</div>
 							<div class="descrip">
 								<?php echo $service['desc']; ?>
@@ -213,16 +264,42 @@ get_header();
 						?>
 						<div class="back">
 							<div class="back-into">
-								<div class="flex">
-									<div class="left">
-										<img src="<?php echo $service['imagen']; ?>">
-									</div>
-									<div class="right">
-										<div class="titleMax">
-											<h3><?php echo $service['title']; ?></h3>
-										</div>
-										<div class="content">
-											<?php echo $service['content']; ?>
+								<div class="flex-into">
+									<div class="flex-into">										
+										<div class="self_information">
+											<?php
+												$precios = get_field('precios',$service['link']);
+												foreach ($precios as $pp) {
+													?>
+												<div class="self_form__init <?php if($pp['destacado']) {?> destacado <?php } ?>">
+													<div class="self_form__init__front">
+														<ul>
+															<li class="titleMensual"><?php echo $pp['title']; ?></li>
+															<li class="planMensual"><b><?php echo $pp['planmensual']; ?></b></li>
+															<?php
+																foreach ($pp['interna'] as $kk) {
+																	?>
+																<li><?php echo $kk['text']; ?></li>
+																	<?php
+																}
+															?>
+															<li class="button">
+																<a href="javascript:void(0)" class="btn">Consultar</a>						
+															</li>
+														</ul>
+													</div>
+													<div class="self_form__init__back" data="<?php echo $pp['title']; ?>">
+														<div class="form">
+															<div class="form__title"><?php echo $pp['title']; ?></div>
+															<div class="form__content">
+																<?php echo do_shortcode('[contact-form-7 id="71" title="consulta"]'); ?>
+															</div>
+														</div>
+													</div>
+												</div>
+													<?php
+												}
+											?>			
 										</div>
 									</div>
 								</div>
@@ -235,7 +312,7 @@ get_header();
 		</div>		
 	</div>
 </section>
-<section class="clientes">
+<section class="clientes" style="display: none;">
 	<div class="x-container">
 		<div class="title">
 			<h2><?php the_field('clientes_title'); ?></h2>

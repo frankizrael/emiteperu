@@ -19,6 +19,14 @@ $('.services .box-flex .box-flex__item').on('click',function(){
 		$('.inside-valid-flex').addClass('active');
 	},500);
 });
+$('.button .btn').on('click',function(){
+	let $this = $(this);
+	$this.closest('.self_form__init').find('.self_form__init__back').addClass('active');
+});
+$('.self_form__init').on('mouseleave',function(){
+	let $this = $(this);
+	$this.closest('.self_form__init').find('.self_form__init__back').removeClass('active');
+});
 $('.services .box-flex .box-flex__item').eq(1).trigger('click');
 var mySwiperInit = new Swiper('.clientes__slider .swiper-container', {
     speed: 400,
@@ -29,4 +37,13 @@ var mySwiperInit = new Swiper('.clientes__slider .swiper-container', {
     loop: true,
     autoplay: 2500,
     slidesPerView: 'auto'
+});
+
+var mySwiperInit = new Swiper('.init .swiper-container', {
+    speed: 400,
+    pagination: {
+        el: '.init .swiper-pagination',
+        clickable: true
+    },
+    slidesPerView: 1
 });

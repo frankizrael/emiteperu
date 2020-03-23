@@ -761,35 +761,75 @@ button.swiper-pagination-bullet {
         border: none; }
   .precios .precios_box .self_information {
     display: flex;
-    width: calc(100% - 288px);
+    width: 100%;
     background: rgba(230, 230, 230, 0.27);
     position: relative;
     z-index: 1;
-    overflow-x: scroll; }
+    flex-wrap: wrap;
+    justify-content: space-between; }
     .precios .precios_box .self_information .self_form__init {
-      width: 385px;
+      width: calc(33.33% - 20px);
       overflow: hidden;
-      border-right: solid 2px rgba(136, 136, 136, 0.11);
       position: relative;
-      flex: none; }
+      flex: none;
+      margin-bottom: 40px;
+      box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.39);
+      border-radius: 8px;
+      transition: 0.3s; }
+      .precios .precios_box .self_information .self_form__init:hover {
+        box-shadow: 0px 15px 18px rgba(0, 0, 0, 0.42); }
       .precios .precios_box .self_information .self_form__init__front {
         transition: 0.3s; }
-        .precios .precios_box .self_information .self_form__init__front:hover {
-          background: white; }
         .precios .precios_box .self_information .self_form__init__front li {
           padding: 6px 20px;
-          border-bottom: solid 1px rgba(185, 185, 185, 0.27);
-          font-size: 13px;
-          padding-bottom: 7px; }
+          border-bottom: solid 1px rgba(185, 185, 185, 0.17);
+          font-size: 12px;
+          padding-bottom: 7px;
+          padding-left: 40px; }
+          .precios .precios_box .self_information .self_form__init__front li:before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 10px;
+            border-bottom: solid 1px #000a42;
+            border-right: solid 1px #000a42;
+            transform: rotate(45deg);
+            left: 23px; }
+          .precios .precios_box .self_information .self_form__init__front li:nth-child(2n) {
+            background: #f1f1f1; }
           .precios .precios_box .self_information .self_form__init__front li.titleMensual {
-            font-size: 25px;
-            padding: 9px 20px;
-            color: #ff9700;
-            font-weight: 700; }
-          .precios .precios_box .self_information .self_form__init__front li.planMensual {
-            font-size: 17px;
+            font-size: 36px;
+            background: #000a42;
             font-weight: 700;
-            padding: 9px 20px; }
+            color: white;
+            border-bottom: none;
+            padding-bottom: 0px;
+            font-family: 'nexa_bold';
+            padding-top: 15px;
+            padding-left: 20px;
+            border-bottom: none; }
+            .precios .precios_box .self_information .self_form__init__front li.titleMensual:before {
+              display: none; }
+          .precios .precios_box .self_information .self_form__init__front li.planMensual {
+            font-size: 20px;
+            font-weight: 700;
+            background: #000a42 !important;
+            color: white;
+            padding-bottom: 20px;
+            margin-bottom: 5px;
+            padding-left: 20px;
+            border-bottom: none; }
+            .precios .precios_box .self_information .self_form__init__front li.planMensual:before {
+              display: none; }
+          .precios .precios_box .self_information .self_form__init__front li.button {
+            padding-left: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-bottom: none; }
+            .precios .precios_box .self_information .self_form__init__front li.button:before {
+              display: none; }
+            .precios .precios_box .self_information .self_form__init__front li.button a {
+              min-width: 170px; }
       .precios .precios_box .self_information .self_form__init__back {
         position: absolute;
         z-index: 2;
@@ -799,6 +839,8 @@ button.swiper-pagination-bullet {
         box-shadow: 0px -4px 9px rgba(0, 0, 0, 0.29);
         transform: translateY(110%);
         transition: 0.3s; }
+        .precios .precios_box .self_information .self_form__init__back .flex {
+          display: block !important; }
         .precios .precios_box .self_information .self_form__init__back.active {
           transform: none; }
         .precios .precios_box .self_information .self_form__init__back .form {
@@ -829,3 +871,9 @@ button.swiper-pagination-bullet {
               border-radius: 5px; }
           .precios .precios_box .self_information .self_form__init__back .form__content .buttonFull .btn {
             min-width: 150px; }
+      .precios .precios_box .self_information .self_form__init.destacado {
+        box-shadow: 0px 15px 18px rgba(0, 0, 0, 0.42);
+        transform: translateY(-3px);
+        border: solid 2px #fd9600; }
+        .precios .precios_box .self_information .self_form__init.destacado .self_form__init__front li.titleMensual, .precios .precios_box .self_information .self_form__init.destacado .self_form__init__front li.planMensual {
+          background: #fd9600 !important; }

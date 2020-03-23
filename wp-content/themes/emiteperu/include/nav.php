@@ -16,7 +16,7 @@
 					?>
 				</div>
 				<div class="nav__pedido">
-					<a href="#" class="btn">Quiero facturar</a>
+					<a href="#" class="btn">Contáctanos</a>
 				</div>
 			</div>
 		</div>

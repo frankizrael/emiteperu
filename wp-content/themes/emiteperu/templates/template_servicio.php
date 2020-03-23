@@ -141,32 +141,7 @@ $frontpage_id = get_option( 'page_on_front' );
 			<h2><?php the_field('precios_title'); ?></h2>
 		</div>	
 	</div>
-	<div class="precios_box">
-		<div class="self_box">
-			<ul>
-				<li></li>
-				<li>Plan Mensual</li>
-				<li>Licencia de Activación</li>
-				<li>Alojamiento de</li>
-				<li><b>PRIMER MES</b></li>
-				<li><b>Configuración del Portal Sunat</b></li>
-				<li><b>Alojamiento de Archivos (XML y CDR)</b></li>
-				<li><b>Portal de Consultas para Contabilidad</b></li>
-				<li>Facturación Electrónica</li>
-				<li>Funcionalidades</li>
-				<li>Funcionalidades avanzadas</li>
-				<li>Reporte Contable</li>
-				<li>Comprobantes</li>
-				<li>Comprobantes de Contingencia</li>
-				<li>Productos</li>
-				<li>Usuarios</li>
-				<li>Consulta de Datos</li>
-				<li>Consulta de Comprobantes</li>
-				<li>Alerta por Correos</li>
-				<li>Envío de Comprobantes</li>
-				<li></li>
-			</ul>
-		</div>
+	<div class="precios_box x-container">
 		<div class="self_information">
 			<?php
 				$precios = get_field('precios');
