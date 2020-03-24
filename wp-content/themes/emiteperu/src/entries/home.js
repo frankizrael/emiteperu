@@ -45,5 +45,9 @@ var mySwiperInit = new Swiper('.init .swiper-container', {
         el: '.init .swiper-pagination',
         clickable: true
     },
-    slidesPerView: 1
+    slidesPerView: 1,
+    loop: true,
+    autoplay: {
+    	delay: 2500
+    }
 });

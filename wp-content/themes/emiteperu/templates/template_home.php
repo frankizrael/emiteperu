@@ -269,35 +269,39 @@ get_header();
 										<div class="self_information">
 											<?php
 												$precios = get_field('precios',$service['link']);
+												$a = 0;
 												foreach ($precios as $pp) {
+													if ($a < 3) {
 													?>
-												<div class="self_form__init <?php if($pp['destacado']) {?> destacado <?php } ?>">
-													<div class="self_form__init__front">
-														<ul>
-															<li class="titleMensual"><?php echo $pp['title']; ?></li>
-															<li class="planMensual"><b><?php echo $pp['planmensual']; ?></b></li>
-															<?php
-																foreach ($pp['interna'] as $kk) {
-																	?>
-																<li><?php echo $kk['text']; ?></li>
-																	<?php
-																}
-															?>
-															<li class="button">
-																<a href="javascript:void(0)" class="btn">Consultar</a>						
-															</li>
-														</ul>
-													</div>
-													<div class="self_form__init__back" data="<?php echo $pp['title']; ?>">
-														<div class="form">
-															<div class="form__title"><?php echo $pp['title']; ?></div>
-															<div class="form__content">
-																<?php echo do_shortcode('[contact-form-7 id="71" title="consulta"]'); ?>
+													<div class="self_form__init <?php if($pp['destacado']) {?> destacado <?php } ?>">
+														<div class="self_form__init__front">
+															<ul>
+																<li class="titleMensual"><?php echo $pp['title']; ?></li>
+																<li class="planMensual"><b><?php echo $pp['planmensual']; ?></b></li>
+																<?php
+																	foreach ($pp['interna'] as $kk) {
+																		?>
+																	<li><?php echo $kk['text']; ?></li>
+																		<?php
+																	}
+																?>
+																<li class="button">
+																	<a href="javascript:void(0)" class="btn">Consultar</a>						
+																</li>
+															</ul>
+														</div>
+														<div class="self_form__init__back" data="<?php echo $pp['title']; ?>">
+															<div class="form">
+																<div class="form__title"><?php echo $pp['title']; ?></div>
+																<div class="form__content">
+																	<?php echo do_shortcode('[contact-form-7 id="71" title="consulta"]'); ?>
+																</div>
 															</div>
 														</div>
 													</div>
-												</div>
 													<?php
+													}
+													$a++;
 												}
 											?>			
 										</div>

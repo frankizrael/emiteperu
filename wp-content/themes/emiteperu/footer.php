@@ -4,9 +4,24 @@
 			<div class="flex">
 				<div class="left">
 					<?php
-						wp_nav_menu( array(
-						    'menu' => 'Header Menu'
-						) );
+						$menu_footer = get_field('menu_footer','option');
+						if ($menu_footer) {
+							?>
+						<ul>
+							<?php
+							foreach ($menu_footer as $m) {
+								?>
+							<li>
+								<a href="<?php echo $m['link']; ?>">
+									<?php echo $m['text']; ?>
+								</a>
+							</li>
+								<?php
+							}					
+							?>
+						</ul>
+						<?php
+						}
 					?>
 				</div>
 				<div class="right">
