@@ -39,6 +39,10 @@
 	    max-width: 540px;
 	    padding: 0px 20px;
     	padding-top: 20px;
+    	@include maxw(tablet_p) {
+			padding: 0px 15px;
+    		padding-top: 15px;
+		}
     	&:before {
     		content: '';
 		    position: absolute;
@@ -48,11 +52,20 @@
 		    border-top: solid 2px $azul;
 		    top: 0;
 		    left: 0;
+		    @include maxw(tablet_p) {
+				width: 40px;
+		    	height: 40px;
+			}
     	}
 	    h1 {
 	    	font-size: 65px;
 	    	line-height: 65px;
 	    	margin-bottom: 15px;
+	    	@include maxw(tablet_p) {
+				font-size: 45px;
+	    		line-height: 45px;
+	    		margin-bottom: 10px;
+			}
 	    	&:after {
 	    		content: '.';
     			color: $azul;
@@ -61,10 +74,17 @@
 	    p {
 	    	font-size: 32px;
 	    	margin-bottom: 65px;
+	    	@include maxw(tablet_p) {
+				font-size: 24px;
+	    		margin-bottom: 25px;
+			}
 	    }
 	    a {
 	    	font-size: 20px;
 	    	min-width: 250px;
+	    	@include maxw(tablet_p) {
+				font-size: 16px;
+			}
 	    }
 	}
 	.social-bottom {
@@ -114,48 +134,101 @@
 	    bottom: auto !important;
 	    top: 50%;
 	    left: auto !important;
+	    @include maxw(table_max) {
+           right: -10px;
+        }
 	}
 }
 .soluciones {
 	margin: 50px 0px;
 	.box {
 		background: white;
+		.title {
+			@include maxw(mypc) {
+				max-width: 550px;
+			}
+		}
 	}
 	.soluciones_box {
 		.flex {
 		    display: flex;
 		    align-items: center;
+		    @include maxw(table_min) {
+		    	display: block;
+		    }
 		    .left {
 			    width: 300px;
 			    margin-right: 50px;
+			    @include maxw(mypc) {
+					width: 200px;
+   					flex: none;
+			    	margin-right: 20px;
+			    	svg {
+			    		width: 100%;
+			    		height: auto;
+			    	}
+				}
+				@include maxw(table_min) {
+			    	width: 100%;
+			    	margin: 0px;
+			    }
 			}
 			.right {
+				@include maxw(mypc) {
+					width: calc(100% - 240px);
+   					flex: none;
+			    	margin-right: 20px;
+				}
+				@include maxw(table_min) {
+			    	width: 100%;
+			    	margin: 0px;
+			    }
 				.flex-soluciones {
 				    display: flex;
 				    flex-wrap: wrap;
 				    align-items: stretch;
 				    justify-content: space-between;
+				    @include maxw(table_max) {
+				    	display: block;
+				    }
 				    .concepto-1 {
 					    flex: none;
 					    width: calc(50% - 30px);
 					    border-top: solid 1px $azul;
 					    border-bottom: solid 1px $azul;
 					    padding: 40px 0px;
+					    @include maxw(tablet_p) {
+							padding: 20px 0px;
+						}
+					    @include maxw(table_max) {
+					    	width: 100%;
+					    	margin-bottom: 40px;
+					    }
 					    p {
 						    font-size: 25px;
 						    color: $skyblue;
+						    @include maxw(tablet_p) {
+								font-size: 20px;
+							}
 						}
 					}
 					.concepto-2 {
 					    flex: none;
 					    width: calc(50% - 30px);
 					    position: relative;
+					    @include maxw(table_max) {
+					    	width: 100%;
+					    }
 					    .box {
 						    position: absolute;
 						    width: 100%;
 						    box-sizing: border-box;
 						    top: -220px;
 						    background: white;
+						    @include maxw(table_max) {
+						    	position: relative;
+						    	top: 0px;
+						    }
 						    .sec-title {
 							    position: relative;
 							    padding-top: 7px;
@@ -198,18 +271,35 @@
 }
 .services {
     padding: 70px 0px;
+    @include maxw(extra_width) {
+    	padding: 50px 0px;
+    }
     .box-flex {
 	    display: flex;
 	    justify-content: space-between;
 	    align-items: stretch;
+	    @include maxw(extra_width) {
+	    	overflow-y: hidden;
+	    	overflow-x: scroll;
+	    	padding: 20px 10px;
+	    }
 	    &__item {
 		    width: calc(33.33% - 20px);
 		    cursor: pointer;
+		    @include maxw(extra_width) {
+		    	width: 250px;
+		    	flex: none;
+    			margin-right: 15px;
+		    }
 		    .box {
 			    height: 100%;
 			    box-sizing: border-box;
 			    border: solid 2px transparent;
 			    position: relative;
+			    @include maxw(extra_width) {
+			    	padding: 10px;
+			    	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+			    }
 			    &:before {
 				    content: '';
 				    position: absolute;
@@ -267,10 +357,17 @@
 			.descrip {
 			    min-height: 120px;
 			    margin-bottom: 20px;
+			    @include maxw(extra_width) {
+				   display: none;
+				}
 			}
 			.link {
 				a {
 					min-width: 180px;
+					@include maxw(extra_width) {
+				    	min-width: 100%;
+				    	width: 100%;
+				    }
 				}
 			}
 			&:nth-child(1) {
@@ -370,6 +467,10 @@
 				padding: 25px 35px;
 				margin: 30px 0px;				
 				background: white;
+				@include maxw(extra_width) {
+					padding: 15px 15px;
+					margin: 10px 0px;	
+				}
 			}
 			.flex {
 			    display: flex;
@@ -486,6 +587,9 @@
 	    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.39);
 	    border-radius: 8px;	 	    
 	    transition: 0.3s;
+	    @include maxw(table_max) {
+	    	width: 100%;
+	    }
     	&:hover {
     		box-shadow: 0px 15px 18px rgba(0, 0, 0, 0.42);
     	}   
@@ -522,6 +626,9 @@
 				    padding-left: 20px;
 				    border-bottom: none;
 				    &:before { display: none; }
+				    @include maxw(table_min) {
+				    	font-size: 30px;
+				    }
 			    }
 			    &.planMensual {
 					font-size: 20px;
@@ -623,6 +730,11 @@
     background-attachment: fixed;
     position: relative;
     z-index: 1;
+    @include maxw(table_max) {
+    	padding-top: 40px;
+    	padding-bottom: 40px;
+    	margin-top: 0px;
+    }
     &:after {
 	    content: '';
 	    position: absolute;
@@ -637,10 +749,16 @@
     .flex-c {
 	    display: flex;
 	    justify-content: space-between;
+	    @include maxw(table_max) {
+	    	display: block;
+	    }
 	    .left {
 		    width: 500px;
+		    @include maxw(table_max) {
+		    	width: 100%;
+		    }
 		}
-		.right {
+		.right {			
 			.contacto {
 			    width: 450px;
 			    box-sizing: border-box;
@@ -651,6 +769,11 @@
 			    position: relative;
 			    top: -150px;
 			    margin-bottom: -100px;
+			    @include maxw(table_max) {
+			    	width: 100%;
+			    	top: 0px;
+			    	margin-bottom: 0px;
+			    }
 			    .center_title {
 				    text-align: center;
 				    font-weight: 700;
@@ -661,10 +784,16 @@
 				.flexInput {
 				    display: flex;
 				    justify-content: space-between;
+				    @include maxw(table_max) {
+					    display: block;
+					}
 				    .inputCrow {
 					    box-sizing: border-box;
 					    width: calc(50% - 10px);
 					    margin-bottom: 15px;
+					    @include maxw(table_max) {
+					    	width: 100%;
+					    }
 					    label {
 						    display: block;
 						    font-size: 14px;

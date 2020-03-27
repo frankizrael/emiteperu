@@ -10,8 +10,13 @@
     background: $orange;
     color: white;
     border: none;
-    &:hover {
-        
+    &--right {
+        margin-left: 15px;
+        background: $azul;
+        @include maxw(table_max) {
+            margin-left: 0px;
+            margin-top: 10px;
+        }
     }
 }
 .myLink {

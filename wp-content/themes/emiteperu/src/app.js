@@ -21,7 +21,7 @@ import TweenLite from "gsap/TweenLite";
 	 	//
 	}
 //scroll
-	$('.anchor a').on('click', function(event){
+	$('.btnanchor').on('click', function(event){
       	event.preventDefault();
       	let $this = $(this);
       	let href = $this.attr('href');
@@ -29,7 +29,9 @@ import TweenLite from "gsap/TweenLite";
  	});
 	
 //buttons
-	
+	$('.nav__mobile').on('click', function(event){
+      	$('body').toggleClass('menuOpen');
+ 	});	
 //forms input
 	
 //preload animation

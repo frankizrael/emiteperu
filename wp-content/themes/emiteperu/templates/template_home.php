@@ -12,7 +12,8 @@ get_header();
 						<div class="title">
 							<h1><?php the_title(); ?></h1>
 							<p><?php the_field('subtitle'); ?></p>
-							<a href="#" class="btn">Contáctanos</a>
+							<a href="#contacto" class="btn btnanchor">Contáctanos</a>
+							<a href="#precios" class="btn btn--right btnanchor">Precios</a>
 						</div>
 						<div class="social-bottom">
 							<?php
@@ -227,7 +228,7 @@ get_header();
 		</div>
 	</div>
 </section>
-<section class="services">
+<section class="services" id="precios">
 	<div class="x-container">
 		<div class="title">
 			<h2><?php the_field('services_title'); ?></h2>
@@ -344,7 +345,7 @@ get_header();
 		</div>
 	</div>
 </section>
-<section class="background-banner" style="background-image: url('<?php the_field('background_banner'); ?>');">
+<section class="background-banner" style="background-image: url('<?php the_field('background_banner'); ?>');" id="contacto">
 	<div class="x-container">
 		<div class="flex-c">
 			<div class="left">

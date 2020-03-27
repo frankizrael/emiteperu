@@ -1,11 +1,11 @@
 $view-mypc: 1700px;
-$view-mylaptop: 1400px;
+$view-mylaptop: 1550px;
 $view-laptop: 1300px;
-$view-tablet_p: 1025px;
-$view-table_max: 950px;
+$view-tablet_p: 1125px;
+$view-table_max: 1050px;
 $view-table_min: 750px;
 $view-mobile: 550px;
-$view-extra_width: 740px;
+$view-extra_width: 950px;
 $view-extra_height: 450px;
 $view-iphone: 321px;
 $view-extra_height: 470px;
@@ -37,6 +37,11 @@ $view-extra_height: 470px;
   }
   @if $breakpoint == table_min {
     @media (max-width: "#{$view-table_min}") {
+      @content;
+    }
+  }
+  @if $breakpoint == extra_width {
+    @media (max-width: "#{$view-extra_width}") {
       @content;
     }
   }

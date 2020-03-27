@@ -2,6 +2,10 @@ footer {
 	background: #212322;
 	padding: 60px 0px;
 	padding-bottom: 20px;
+	@include maxw(table_max) {
+    	padding: 30px 0px;
+		padding-bottom: 20px;
+    }
 	.top_footer {
 		border-bottom: solid 2px rgba(255, 255, 255, 0.3);
 	    padding-bottom: 10px;
@@ -9,10 +13,16 @@ footer {
 		.flex {
 			display: flex;
     		justify-content: space-between;
+    		@include maxw(table_max) {
+		    	display: block;
+		    }
     		.left {
     			ul {
     				display: flex;
     				.sub-menu { display: none; }
+    				@include maxw(table_max) {
+				    	display: block;
+				    }
     			}
     			li {
     				margin-right: 15px;
@@ -54,12 +64,22 @@ footer {
 		.flex {
 			display: flex;
 			justify-content: space-between;
+			@include maxw(table_max) {
+		    	display: block;
+		    }
 			.bendita {
 				display: flex;
+				@include maxw(table_max) {
+			    	display: block;
+			    }
 				&__item {
 				    margin-right: 25px;
 				    color: white;
 				    font-size: 14px;
+				    @include maxw(table_max) {
+				    	margin-right: 0px;
+				    	margin-bottom: 25px;
+				    }
 				    h3 {
 					    color: white;
 					    margin-bottom: 5px;
@@ -73,7 +93,6 @@ footer {
 					a {
 					    color: white;
 					    font-size: 14px;
-					    text-decoration: underline;
 					}
 				}
 			}
@@ -98,6 +117,9 @@ footer {
 		}
 	}
 	.bot_footer {
+		@include maxw(table_max) {
+	    	padding-bottom: 60px;
+	    }
 		.flex {
 		    display: flex;
 		    justify-content: space-between;
