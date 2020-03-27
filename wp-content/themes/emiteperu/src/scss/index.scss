@@ -152,6 +152,7 @@ div[id*='ajaxsearchliteres'].wpdreams_asl_results .results div.asl_image {
 	    img {
 		    display: block;
 		    width: 100%;
+		    object-fit: cover;
 		}
 	}
 	&__date {

@@ -46,8 +46,14 @@ var mySwiperInit = new Swiper('.init .swiper-container', {
         clickable: true
     },
     slidesPerView: 1,
-    loop: true,
+    effect: 'fade',
+    fade: { crossFade: true },
     autoplay: {
-    	delay: 4500
+    	delay: 7500
     }
 });
+
+var min = $(window).width();
+if (min < 700) {
+    $('.box-flex').scrollLeft('210');
+}

@@ -53,6 +53,7 @@ get_header();
 								<h1><?php echo $ban['title']; ?></h1>
 								<p><?php echo $ban['subtitle']; ?></p>
 								<a href="<?php echo $ban['link']; ?>" class="btn"><?php echo $ban['link_text']; ?></a>
+								<a href="#precios" class="btn btn--right btnanchor">Precios</a>
 							</div>
 							<div class="social-bottom">
 								<?php

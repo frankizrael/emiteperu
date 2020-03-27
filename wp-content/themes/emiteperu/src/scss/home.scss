@@ -135,7 +135,7 @@
 	    top: 50%;
 	    left: auto !important;
 	    @include maxw(table_max) {
-           right: -10px;
+           right: -35px;
         }
 	}
 }
@@ -279,9 +279,13 @@
 	    justify-content: space-between;
 	    align-items: stretch;
 	    @include maxw(extra_width) {
-	    	overflow-y: hidden;
-	    	overflow-x: scroll;
-	    	padding: 20px 10px;
+			overflow-y: hidden;
+		    overflow-x: scroll;
+		    padding: 20px 10px;
+		    width: calc(100% + 40px);
+		    box-sizing: border-box;
+		    position: relative;
+		    left: -20px;
 	    }
 	    &__item {
 		    width: calc(33.33% - 20px);
@@ -468,8 +472,9 @@
 				margin: 30px 0px;				
 				background: white;
 				@include maxw(extra_width) {
-					padding: 15px 15px;
-					margin: 10px 0px;	
+					padding: 10px;
+				    margin: 10px 0px;
+				    border: none !important;
 				}
 			}
 			.flex {

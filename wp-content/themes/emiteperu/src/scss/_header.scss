@@ -227,29 +227,23 @@ header {
 		}
 	}
 }
+.anchor_link {
+	@include maxw(table_min) {
+		a {
+		    display: none !important;
+		}
+	    .sub-menu {
+	    	a {
+			    display: block !important;
+			}
+	    }
+	}
+}
 .fixed_social {
     position: fixed;
     bottom: 0px;
     z-index: 50;
-    left: 300px;
-    @include maxw(mylaptop) {
-		left: 50px;
-	}
-	@include maxw(laptop) {
-		left: 50px;
-	}
-	@include maxw(tablet_p) {
-		left: 50px;
-	}
-	@include maxw(table_max) {
-		left: 20px;
-	}
-	@include maxw(table_min) {
-		left: 20px;
-	}
-	@include maxw(mobile) {
-		left: 20px;
-	}
+    left: 20px;
     ul {
 	    display: flex;
 	    overflow: hidden;
