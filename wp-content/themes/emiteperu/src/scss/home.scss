@@ -742,12 +742,6 @@
 }
 
 
-.mobileBox 
-
-.mobileBox .titleInit h3
-.mobileBox .titleInit 
-.mobileBox 
-.mobileBox 
 .mobileBox {
     border-top: solid 2px #3e3e3e29;
     padding-top: 50px;
@@ -773,6 +767,9 @@
 	.descrip {
 	    margin-bottom: 10px;
 	    margin-top: 10px;
+	    p {
+		    font-size: 14px;
+		}
 	}
 	.link {
 		a {

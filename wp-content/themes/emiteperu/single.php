@@ -38,7 +38,9 @@ get_header(); ?>
 							<p><?php the_field('date'); ?></p>
 						</div>
 						<div class="views">
-							<i class="fa fa-eye"></i> <?php echo gt_get_post_view(); ?>
+							<i class="fa fa-eye"></i> 
+							<?php setPostViews(get_the_ID()); ?>
+							<?php echo getPostViews(get_the_ID()); ?>
 						</div>
 						<div class="autor">
 							<i class="fa fa-user"></i> Publicado por: <?php the_author(); ?>
