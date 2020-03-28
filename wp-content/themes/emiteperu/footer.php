@@ -1,3 +1,30 @@
+<?php
+	$fid = get_option( 'page_on_front' );
+?>
+<section class="background-banner" style="background-image: url('<?php the_field('background_banner',$fid); ?>');" id="contacto">
+	<div class="x-container">
+		<div class="flex-c">
+			<div class="left">
+				<div class="title title--white">
+					<h2><?php the_field('background_title',$fid); ?></h2>
+					<p><?php the_field('background_subtitle',$fid); ?></p>
+				</div>
+			</div>
+			<div class="right">
+				<div class="contacto">
+					<div class="contactoContent">
+						<div class="center_title">
+							<?php the_field('form_title',$fid); ?>
+						</div>
+						<div class="contacto_form">
+							<?php echo do_shortcode('[contact-form-7 id="5" title="Contact"]'); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 <footer>
 	<div class="x-container">
 		<div class="top_footer">

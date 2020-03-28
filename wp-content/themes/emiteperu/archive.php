@@ -104,6 +104,9 @@ get_header(); ?>
 								endif;
 							?>
 						</div>
+						<div class="pagination">
+							<?php echo decorlux_pagination(); ?>
+						</div>
 					</div>
 				</div>
 			</div>

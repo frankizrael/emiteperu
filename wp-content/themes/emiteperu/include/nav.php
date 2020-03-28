@@ -19,7 +19,7 @@ $fid = get_option( 'page_on_front' );
 					?>
 				</div>
 				<div class="nav__pedido">
-					<a href="<?php echo site_url();?>#contacto" class="btn">Contáctanos</a>
+					<a href="#contacto" class="btn btnanchor">Contáctanos</a>
 					<div class="nav__mobile">
 						<i></i>
 					</div>

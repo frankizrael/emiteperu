@@ -165,6 +165,9 @@ $frontpage_id = get_option( 'page_on_front' );
 						</ul>
 					</div>
 					<div class="self_form__init__back" data="<?php echo $pp['title']; ?>">
+						<div class="form__close">
+							<i class="fas fa-times"></i>
+						</div>
 						<div class="form">
 							<div class="form__title"><?php echo $pp['title']; ?></div>
 							<div class="form__content">

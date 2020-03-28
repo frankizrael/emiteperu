@@ -12,6 +12,11 @@
     @include maxw(laptop) {
     	height: 400px;
     }
+    @include maxw(table_min) {    	
+	    display: block;
+	    padding-top: 90px;
+	    box-sizing: border-box;
+    }
 	&:after {
 	    content: '';
 	    position: absolute;
@@ -37,6 +42,10 @@
 			    @include maxw(table_min) {
 				    font-size: 35px;
 				}
+			}
+			p {
+				color: white;
+				font-size: 20px;
 			}
 		}
 		.social-bottom {
@@ -80,6 +89,9 @@
 	    @include maxw(table_min) {
 		  	width: calc(50% - 20px);
 		}
+		@include maxw(mobile) {
+		  	width: 100%;
+		}
 	    img {
 		    width: 100%;
 		    display: block;
@@ -88,7 +100,7 @@
 		span {
 		    position: absolute;
 		    left: 0;
-		    background: rgba(51, 116, 172, 0.8);
+		    background: rgba(255, 48, 42, 0.9);
 		    height: 100%;
 		    width: 100%;
 		    display: flex;

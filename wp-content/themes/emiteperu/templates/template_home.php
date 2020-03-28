@@ -234,30 +234,40 @@ get_header();
 		<div class="title">
 			<h2><?php the_field('services_title'); ?></h2>
 		</div>
-		<div class="box-flex">
-			<?php
-				$services = get_field('services');
-				foreach ($services as $service) {
-					?>
-				<div class="box-flex__item">
-					<div class="box">
-						<div class="front">
-							<div class="titleInit">
-								<h3><?php echo $service['title']; ?></h3>
-							</div>
-							<div class="descrip">
-								<?php echo $service['desc']; ?>
-							</div>
-							<div class="link">
-								<a href="<?php echo get_permalink($service['link']); ?>" class="btn">Ver más</a>
+		<?php
+			if ( wp_is_mobile() ) {
+			   ?>
+			   <!-- fuck mobile -->
+			   <?php
+			} else {
+				?>
+				<div class="box-flex">
+					<?php
+						$services = get_field('services');
+						foreach ($services as $service) {
+							?>
+						<div class="box-flex__item">
+							<div class="box">
+								<div class="front">
+									<div class="titleInit">
+										<h3><?php echo $service['title']; ?></h3>
+									</div>
+									<div class="descrip">
+										<?php echo $service['desc']; ?>
+									</div>
+									<div class="link">
+										<a href="<?php echo get_permalink($service['link']); ?>" class="btn">Ver más</a>
+									</div>
+								</div>
 							</div>
 						</div>
-					</div>
+							<?php
+						}
+					?>
 				</div>
-					<?php
-				}
-			?>
-		</div>
+			   <?php
+			}
+		?>
 		<div class="min-heightA">
 			<div class="inside-valid-flex">
 				<?php
@@ -267,13 +277,35 @@ get_header();
 						<div class="back">
 							<div class="back-into">
 								<div class="flex-into">
-									<div class="flex-into">										
+									<div class="flex-into">		
+										<?php
+											if ( wp_is_mobile() ) {
+											?>
+										<div class="mobileBox">
+											<div class="titleInit">
+												<h3><?php echo $service['title']; ?></h3>
+											</div>
+											<div class="descrip">
+												<?php echo $service['desc']; ?>
+											</div>
+											<div class="link">
+												<a href="<?php echo get_permalink($service['link']); ?>" class="btn">Ver más</a>
+											</div>
+										</div>
+											<?php
+											}
+										?>								
+
 										<div class="self_information">
 											<?php
 												$precios = get_field('precios',$service['link']);
 												$a = 0;
+												$aux = 3;
+												if ( wp_is_mobile() ) {
+												    $aux = 1;
+												}
 												foreach ($precios as $pp) {
-													if ($a < 3) {
+													if ($a < $aux) {
 													?>
 													<div class="self_form__init <?php if($pp['destacado']) {?> destacado <?php } ?>">
 														<div class="self_form__init__front">
@@ -293,6 +325,9 @@ get_header();
 															</ul>
 														</div>
 														<div class="self_form__init__back" data="<?php echo $pp['title']; ?>">
+															<div class="form__close">
+																<i class="fas fa-times"></i>
+															</div>
 															<div class="form">
 																<div class="form__title"><?php echo $pp['title']; ?></div>
 																<div class="form__content">
@@ -346,29 +381,7 @@ get_header();
 		</div>
 	</div>
 </section>
-<section class="background-banner" style="background-image: url('<?php the_field('background_banner'); ?>');" id="contacto">
-	<div class="x-container">
-		<div class="flex-c">
-			<div class="left">
-				<div class="title title--white">
-					<h2><?php the_field('background_title'); ?></h2>
-				</div>
-			</div>
-			<div class="right">
-				<div class="contacto">
-					<div class="contactoContent">
-						<div class="center_title">
-							<?php the_field('form_title'); ?>
-						</div>
-						<div class="contacto_form">
-							<?php echo do_shortcode('[contact-form-7 id="5" title="Contact"]'); ?>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+
 <?php
 get_footer();
 ?>

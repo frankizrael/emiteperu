@@ -243,7 +243,7 @@ header {
     position: fixed;
     bottom: 0px;
     z-index: 50;
-    left: 20px;
+    left: 10px;
     ul {
 	    display: flex;
 	    overflow: hidden;
@@ -253,10 +253,10 @@ header {
 	    	a {
 				display: block;
 			    color: white;
-			    font-size: 20px;
-			    padding: 12px 0px;
+			    font-size: 18px;
+    			padding: 8px 0px;
 			    background: #ff302a;
-			    width: 50px;
+			    width: 40px;
 			    box-sizing: border-box;
 			    text-align: center;
 			    transition: 0.3s;

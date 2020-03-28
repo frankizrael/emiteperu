@@ -31,6 +31,18 @@ get_header(); ?>
 			<div class="left">
 				<div class="tags">
 					<div class="flex justify-content-between align-items-center">
+						<div class="date">
+							<svg id="tiempo" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+							  <path id="icon" d="M2.4,2.4A7.263,7.263,0,0,1,8,0a7.263,7.263,0,0,1,5.6,2.4A7.263,7.263,0,0,1,16,8a7.263,7.263,0,0,1-2.4,5.6A7.263,7.263,0,0,1,8,16a7.263,7.263,0,0,1-5.6-2.4A7.984,7.984,0,0,1,0,8,7.263,7.263,0,0,1,2.4,2.4Zm9.2,9.2.933-.933L9.2,7.333,8,2H6.667V8a1.21,1.21,0,0,0,.4.933.466.466,0,0,0,.267.133Z"/>
+							</svg>
+							<p><?php the_field('date'); ?></p>
+						</div>
+						<div class="views">
+							<i class="fa fa-eye"></i> <?php echo gt_get_post_view(); ?>
+						</div>
+						<div class="autor">
+							<i class="fa fa-user"></i> Publicado por: <?php the_author(); ?>
+						</div>
 						<div class="tag">
 							<?php
 								$categories = get_the_terms( $noticia['id'], 'category' );
@@ -39,16 +51,13 @@ get_header(); ?>
 								}
 							?>
 						</div>
-						<div class="date">
-							<svg id="tiempo" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-							  <path id="icon" d="M2.4,2.4A7.263,7.263,0,0,1,8,0a7.263,7.263,0,0,1,5.6,2.4A7.263,7.263,0,0,1,16,8a7.263,7.263,0,0,1-2.4,5.6A7.263,7.263,0,0,1,8,16a7.263,7.263,0,0,1-5.6-2.4A7.984,7.984,0,0,1,0,8,7.263,7.263,0,0,1,2.4,2.4Zm9.2,9.2.933-.933L9.2,7.333,8,2H6.667V8a1.21,1.21,0,0,0,.4.933.466.466,0,0,0,.267.133Z"/>
-							</svg>
-							<p><?php the_field('date'); ?></p>
-						</div>
 					</div>					
 				</div>
 				<div class="contenido">
 					<?php the_content();?>
+				</div>
+				<div class="comentarios">
+					
 				</div>
 			</div>
 		</div>
@@ -62,7 +71,7 @@ get_header(); ?>
 		<div class="related_c">
 			<?php
 				$id = get_the_ID();
-				$args2 = array('post__not_in' => array($id), 'order' => 'ASC' );
+				$args2 = array('posts_per_page' => 3, 'post__not_in' => array($id), 'order' => 'ASC' );
 				$q2 = new WP_query($args2);
 				if($q2->have_posts()) :
 				    while($q2->have_posts()) : $q2->the_post();

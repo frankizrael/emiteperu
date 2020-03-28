@@ -7,6 +7,7 @@ get_header();
 	<div class="x-container titlePrincipal">
 		<div class="title title--white">
 			<h1><?php the_title();?></h1>
+			<p><?php the_field('subtitle');?></p>
 		</div>
 	</div>
 </section>

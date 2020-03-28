@@ -23,7 +23,7 @@ $('.button .btn').on('click',function(){
 	let $this = $(this);
 	$this.closest('.self_form__init').find('.self_form__init__back').addClass('active');
 });
-$('.self_form__init').on('mouseleave',function(){
+$('.self_form__init .form__close').on('click',function(){
 	let $this = $(this);
 	$this.closest('.self_form__init').find('.self_form__init__back').removeClass('active');
 });
