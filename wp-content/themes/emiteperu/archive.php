@@ -66,6 +66,7 @@ get_header(); ?>
 									?>
 									<div class="noticias__item posRelative" id="noticia_<?php echo get_the_ID(); ?>">
 										<div class="noticias__item__img posRelative">
+											<a href="<?php echo get_permalink(get_the_ID());?>">
 											<img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>">
 											<span class="noticias__item__date flex align-items-center posAbsolute">
 												<svg id="tiempo" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
@@ -73,6 +74,7 @@ get_header(); ?>
 												</svg>
 												<p><?php the_field('date',get_the_ID()); ?></p>
 											</span>
+											</a>
 										</div>
 										<div class="noticias__item__content">
 											<div class="tag">
@@ -83,8 +85,8 @@ get_header(); ?>
 													}
 												?>
 											</div>
-											<div class="title title--little title--nopoint">
-												<h3><?php echo get_the_title(get_the_ID()); ?></h3>
+											<div class="title--nopoint">
+												<h3><a href="<?php echo get_permalink(get_the_ID());?>"><?php echo get_the_title(get_the_ID()); ?></a></h3>
 											</div>
 											<div class="linkContent">
 												<a href="<?php echo get_permalink(get_the_ID());?>" class="myLink myLink--icon myLink--red myLink--bold">Ver más <i><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
