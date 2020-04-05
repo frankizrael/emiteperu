@@ -9,6 +9,7 @@ module.exports = function(env) {
             page: "./src/entries/page.js",
             home: "./src/entries/home.js",
             index: "./src/entries/index.js",
+            consulta: "./src/entries/consulta.js",
             servicio: "./src/entries/servicio.js"
         },
         target: "web",

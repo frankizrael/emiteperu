@@ -140,3 +140,30 @@ function setPostViews($postID) {
     }
 }
 
+
+//
+/* consulta url */
+function get_callUrlConsulta() {
+  $ruc = filter_input(INPUT_GET, 'ruc');
+  $url ='https://www.desoftperu.org/query1520/delaware/license1359/delaware/02274537/application56142/consulta0452/v1/latam1074/system/developmentv2/application/ruc='.$ruc;
+  //$url ='http://190.12.81.36/lotto-uat125-01/client_lotocard_show_map.html?latitude='.$lat.'&length='.$lng;
+    // Get cURL resource
+  $curl = curl_init();
+  // Set some options - we are passing in a useragent too here
+  curl_setopt_array($curl, [
+      CURLOPT_RETURNTRANSFER => 1,
+      CURLOPT_URL => $url,
+      CURLOPT_USERAGENT => ''
+  ]);
+  // Send the request & save response to $resp
+  $resp = curl_exec($curl);
+  // Close request to clear up some resources
+  curl_close($curl);
+  //wp_send_json( $resp );
+  echo $resp;
+  wp_die();
+}
+add_action('wp_ajax_nopriv_callurlConsulta', 'get_callurlConsulta');
+add_action('wp_ajax_callurlConsulta', 'get_callurlConsulta');
+
+
