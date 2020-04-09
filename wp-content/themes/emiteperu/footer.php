@@ -98,7 +98,7 @@
 				</div>
 				<div class="right">
 					<div class="link--a">
-						<a href="#" class="btn">Descargar Herramientas</a>
+						<a href="<?php echo site_url(); ?>/herramientas" class="btn">Descargar Herramientas</a>
 					</div>
 				</div>
 			</div>

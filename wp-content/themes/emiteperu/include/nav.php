@@ -19,7 +19,7 @@ $fid = get_option( 'page_on_front' );
 					?>
 				</div>
 				<div class="nav__pedido">
-					<a href="#contacto" class="btn btnanchor">Contáctanos</a>
+					<a href="<?php echo site_url(); ?>/consulta" class="btn">Validar CPE</a>
 					<div class="nav__mobile">
 						<i></i>
 					</div>

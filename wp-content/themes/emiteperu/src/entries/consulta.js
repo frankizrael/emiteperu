@@ -1,4 +1,13 @@
 import '../scss/consulta.scss';
+import '@chenfengyuan/datepicker/dist/datepicker.min.js';
+import '@chenfengyuan/datepicker/dist/datepicker.min.css';
+import '@chenfengyuan/datepicker/i18n/datepicker.es-ES.js';
+
+$('#fecha').datepicker({
+	language: 'es-ES',
+	format: 'yyyy-mm-dd'
+});
+
 //ruc init
 $('#ruc').on('keypress',function(){
 	var leng = $('#ruc').val().length;
@@ -24,13 +33,19 @@ function validRuc(){
 	var ruc_val = $('#ruc').val();
 	$.ajax({
         url: '/wp-admin/admin-ajax.php',
-        method: 'get',
+        method: 'POST',
         data: {
             action: 'callurlConsulta',
         	ruc: ruc_val
         },
         beforeSend: function() {
         	$('.rucPrincipalInput').addClass('loading');
+	  		$('#reactCont').html('');
+	  		$('#tipo_documento').val('01');
+	  		$('#serie').val('');
+	  		$('#numero').val('');
+	  		$('#fecha').val('');
+	  		$('#importe').val('');
         },
         success: function (resp) {
            //send coords map
@@ -40,23 +55,23 @@ function validRuc(){
            var userApi = respuesta[4];
            if (state == 'no_existe') {
            		$('.errorRuc').show();
-           		$('#ruc').attr('token',token);
-			    $('#ruc').attr('userapi',userApi);
-			    $('#ruc').attr('state',state);
+           		$('#ruc').data('token',token);
+			    $('#ruc').data('userapi',userApi);
+			    $('#ruc').data('state',state);
 			    $('.row').removeClass('disabled');
            }
            if (state == 'existe_pdf') {
            		$('.errorRuc').hide();
-           		$('#ruc').attr('token',token);
-           		$('#ruc').attr('userapi',userApi);
-			    $('#ruc').attr('state',state);
+           		$('#ruc').data('token',token);
+           		$('#ruc').data('userapi',userApi);
+			    $('#ruc').data('state',state);
            		$('.row').removeClass('disabled');
            }
            if (state == 'existe_todos') {
            		$('.errorRuc').hide();
-           		$('#ruc').attr('token',token);
-           		$('#ruc').attr('userapi',userApi);
-			    $('#ruc').attr('state',state);
+           		$('#ruc').data('token',token);
+           		$('#ruc').data('userapi',userApi);
+			    $('#ruc').data('state',state);
            		$('.row').removeClass('disabled');
            }
            if (resp == false) {
@@ -74,23 +89,23 @@ function validRuc(){
 			           var new_userApi = resp.token_api;
 			           if (state == 'no_existe') {
 			           		$('.errorRuc').show();
-			           		$('#ruc').attr('token',new_token);
-			           		$('#ruc').attr('userapi',new_userApi);
-			           		$('#ruc').attr('state',new_state);
+			           		$('#ruc').data('token',new_token);
+			           		$('#ruc').data('userapi',new_userApi);
+			           		$('#ruc').data('state',new_state);
 			           		$('.row').removeClass('disabled');
 			           }
 			           if (state == 'existe_pdf') {
 			           		$('.errorRuc').hide();
-			           		$('#ruc').attr('token',new_token);
-			           		$('#ruc').attr('userapi',new_userApi);
-			           		$('#ruc').attr('state',new_state);
+			           		$('#ruc').data('token',new_token);
+			           		$('#ruc').data('userapi',new_userApi);
+			           		$('#ruc').data('state',new_state);
 			           		$('.row').removeClass('disabled');
 			           }
 			           if (state == 'existe_todos') {
 			           		$('.errorRuc').hide();
-			           		$('#ruc').attr('token',new_token);
-			           		$('#ruc').attr('userapi',new_userApi);
-			           		$('#ruc').attr('state',new_state);
+			           		$('#ruc').data('token',new_token);
+			           		$('#ruc').data('userapi',new_userApi);
+			           		$('#ruc').data('state',new_state);
 			           		$('.row').removeClass('disabled');
 			           }
 				  }
@@ -126,8 +141,8 @@ $('.validFun').on('blur',function(){
 });
 
 $('#send').on('click',function(){
-	var userapi = $('#ruc').attr('userapi');
-	var userstate = $('#ruc').attr('state');
+	var userapi = $('#ruc').data('userapi');
+	var userstate = $('#ruc').data('state');
 	var urlApi = 'http://'+userapi+'.facturafree.com/api/servicio/validar_cpe';
 	$.ajax({
 	  url : urlApi,
@@ -169,17 +184,19 @@ $('#send').on('click',function(){
 		var link_xml = '<a href="'+resp.data.download_xml+'" class="xml" target="_blank">Descargar XML</a>';
 		var link_cdr = '<a href="'+resp.data.download_cdr+'" class="cdr" target="_blank">Descargar CDR</a>';
 		var links = link_pdf+link_xml+link_cdr;
-		if ($('#ruc').attr('state') == 'existe_pdf') {
+		if ($('#ruc').data('state') == 'existe_pdf') {
 			links = link_pdf;
 		}
 		if (userstate != 'no_existe') {
 	  		$('.sendspecial').show();	
-	  		$('#sendEmail').attr('data',resp.data.external_id);		
+	  		$('#sendEmail').data('data',resp.data.external_id);		
+		} else {
+			$('.sendspecial').hide();	
 		}
-	  	var template = '<div class="contenido_list"><div class="list"><ul>'+estado+condicion_description+'</ul></div><div class="links_donwload">'+links+'</div></div>';
+	  	var template = '<div class="contenido_list"><div class="list"><ul>'+estado+'</ul></div><div class="links_donwload">'+links+'</div></div>';
 	  	$('#reactCont').html('');
-	  	if (resp.data.comprobante_estado_codigo == '0') {
-	  		$('#reactCont').append('<div class="contenido_list"><div class="msj">'+resp.data.message+'</div></div>');	
+	  	if (resp.data.comprobante_estado_codigo == '0' || resp.data.comprobante_estado_codigo == '-') {
+	  		$('#reactCont').append('<div class="contenido_list"><div class="msj">EL COMPROBANTE NO FUE INFORMADO A SUNAT, VERIFIQUE SUS DATOS</div></div>');	
 	  	} else {
 	  		$('#reactCont').append(template);
 	  	}
@@ -211,10 +228,10 @@ $('#email').on('blur',function(){
 });
 
 $('#sendEmail').on('click',function(){
-	var userapi = $('#ruc').attr('userapi');
+	var userapi = $('#ruc').data('userapi');
 	var email = $('#email').val();
-	var external_id = $('#sendEmail').attr('data');
-	var token = 'Bearer '+$('#ruc').attr('token');
+	var external_id = $('#sendEmail').data('data');
+	var token = 'Bearer '+$('#ruc').data('token');
 	var urlApi = 'http://'+userapi+'.facturafree.com/api/documents/email';
 	$.ajax({
 	  url : urlApi,

@@ -38,4 +38,4 @@ import TweenLite from "gsap/TweenLite";
 	
 
 //credits
-console.log("ღ Bafing ღ \n Dev con Amor por wampy para DigitalCook");
+console.log("ღ EmitePerú ღ \n Dev con Amor por wampy para DigitalCook");

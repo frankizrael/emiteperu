@@ -8,6 +8,7 @@ $frontpage_id = get_option( 'page_on_front' );
 	<div class="titlePrincipal x-container">
 		<div class="title">
 			<h1><?php the_title(); ?></h1>
+			<a href="#contacto" class="btn btnanchor">Contáctanos</a>
 		</div>
 		<div class="social-bottom">
 			<?php

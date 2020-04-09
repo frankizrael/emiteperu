@@ -144,7 +144,7 @@ function setPostViews($postID) {
 //
 /* consulta url */
 function get_callUrlConsulta() {
-  $ruc = filter_input(INPUT_GET, 'ruc');
+  $ruc = filter_input(INPUT_POST, 'ruc');
   $url ='https://www.desoftperu.org/query1520/delaware/license1359/delaware/02274537/application56142/consulta0452/v1/latam1074/system/developmentv2/application/ruc='.$ruc;
   //$url ='http://190.12.81.36/lotto-uat125-01/client_lotocard_show_map.html?latitude='.$lat.'&length='.$lng;
     // Get cURL resource

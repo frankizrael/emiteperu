@@ -8,13 +8,12 @@ get_header();
 	<div class="x-container titlePrincipal">
 		<div class="title title--white">
 			<h1><?php the_title();?></h1>
-			<div><?php the_content();?></div>
 		</div>
 	</div>
 </section>
 <section class="bannerContent">
 	<div class="x-container">
-		<div class="contenido">
+		<div class="contenido box">
 			<div class="flex">
 				<div class="left">
 					<div class="content">
@@ -81,7 +80,8 @@ get_header();
 					</div>
 				</div>
 				<div class="right">
-					<div class="reactInit box">
+					<div class="reactInit">
+						<div class="badtitle"><?php the_content();?></div>
 						<div class="reactForm">
 							<div class="reactInput inputCrow full rucPrincipalInput">
 								<label>Ruc Emisor</label>
@@ -95,8 +95,8 @@ get_header();
 								<div class="reactInput inputCrow full">
 									<label>Tipo de comprobante</label> 
 									<select id="tipo_documento" name="type">
-										<option value="01">Factura</option>
-										<option value="03">Boleta</option>
+										<option value="01">Factura electrónica</option>
+										<option value="03">Boleta electrónica</option>
 										<option value="07">Nota de crédito electrónica</option>
 										<option value="08">Nota de debito electrónica</option>
 									</select>
@@ -105,7 +105,7 @@ get_header();
 							<div class="row disabled">							
 								<div class="reactInput inputCrow">
 									<label>Serie</label>
-									<input type="text" name="serie" id="serie" class="validFun">
+									<input type="text" name="serie" id="serie" class="validFun" maxlength="4">
 								</div>
 								<div class="reactInput inputCrow">
 									<label>Número</label>
@@ -115,11 +115,11 @@ get_header();
 							<div class="row disabled">
 								<div class="reactInput inputCrow">
 									<label>Fecha de emisión</label>
-									<input type="date" name="fecha" id="fecha" class="validFun" required pattern="(?:19|20)\[0-9\]{2}-(?:(?:0\[1-9\]|1\[0-2\])/(?:0\[1-9\]|1\[0-9\]|2\[0-9\])|(?:(?!02)(?:0\[1-9\]|1\[0-2\])/(?:30))|(?:(?:0\[13578\]|1\[02\])-31))" title="Enter a date in this format YYYY/MM/DD">
+									<input type="text" name="fecha" id="fecha" class="validFun" required>
 								</div>
 								<div class="reactInput inputCrow">
 									<label>Importe total</label>
-									<input type="text" name="importe" id="importe" class="validFun">
+									<input type="number" name="importe" id="importe" class="validFun">
 								</div>
 							</div>
 							<div class="row">
