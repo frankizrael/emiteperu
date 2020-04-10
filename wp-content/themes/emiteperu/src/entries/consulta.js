@@ -10,8 +10,9 @@ $('#fecha').datepicker({
 
 //ruc init
 $('#ruc').on('keypress',function(){
-	var leng = $('#ruc').val().length;
-	if (leng == 11) {
+	var leng = $('#ruc').val().length;	
+	console.log(leng);
+	if (leng > 9) {
 		validRuc();
 	} else {
 		$('.row').addClass('disabled');
@@ -19,6 +20,27 @@ $('#ruc').on('keypress',function(){
 	if (leng > 10) {
 		return false;
 	}
+});
+var getKeyCode = function (str) {
+    return str.charCodeAt(str.length);
+}
+$('#ruc').on('keyup',function(){
+	if (navigator.userAgent.match(/Android/i)) {
+        var inputValue = $('#ruc').val();
+        var charKeyCode = e.keyCode || e.which;
+        if (charKeyCode == 0 || charKeyCode == 229) { 
+            charKeyCode = getKeyCode(inputValue);
+           if (charKeyCode.length > 9) {
+				validRuc();
+			} else {
+				$('.row').addClass('disabled');
+			}
+			if (charKeyCode.length > 10) {
+				return false;
+			}
+        }
+    } 
+	
 });
 $('#ruc').on('blur',function(){
 	var leng = $('#ruc').val().length;
