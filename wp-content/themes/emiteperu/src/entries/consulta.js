@@ -74,7 +74,7 @@ function validRuc(){
 			    $('#ruc').data('state',state);
            		$('.row').removeClass('disabled');
            }
-           if (resp == false) {
+           if (resp == false || resp.split('<html>').length > 0) {
            		$.ajax({
 				  url : 'http://facturafree.com/api/client',
 				  type: 'POST',
@@ -87,21 +87,21 @@ function validRuc(){
 				  	   var new_state = resp.estate;
 			           var new_token = resp.user_api;
 			           var new_userApi = resp.token_api;
-			           if (state == 'no_existe') {
+			           if (new_state == 'no_existe') {
 			           		$('.errorRuc').show();
 			           		$('#ruc').data('token',new_token);
 			           		$('#ruc').data('userapi',new_userApi);
 			           		$('#ruc').data('state',new_state);
 			           		$('.row').removeClass('disabled');
 			           }
-			           if (state == 'existe_pdf') {
+			           if (new_state == 'existe_pdf') {
 			           		$('.errorRuc').hide();
 			           		$('#ruc').data('token',new_token);
 			           		$('#ruc').data('userapi',new_userApi);
 			           		$('#ruc').data('state',new_state);
 			           		$('.row').removeClass('disabled');
 			           }
-			           if (state == 'existe_todos') {
+			           if (new_state == 'existe_todos') {
 			           		$('.errorRuc').hide();
 			           		$('#ruc').data('token',new_token);
 			           		$('#ruc').data('userapi',new_userApi);
@@ -112,6 +112,9 @@ function validRuc(){
 				});
            }
            $('.rucPrincipalInput').removeClass('loading');
+        },
+        error: function(e) {
+        	console.log('a');
         }
     });    
 }

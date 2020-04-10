@@ -81,9 +81,15 @@
 	.flex {
 		display: flex;
 		justify-content: space-between;
+		@include maxw(table_min) {
+		    display: block;
+		}
 		.left {
 			width: 350px;
 			padding-top: 50px;
+			@include maxw(table_min) {
+			    display: none;
+			}
 			svg {
 				width: 350px;
 				height: auto;
@@ -94,6 +100,11 @@
 		    border-left: solid 1px rgba(208, 208, 208, 0.45);
 		    padding-left: 50px;
 		    box-sizing: border-box;
+		    @include maxw(table_min) {
+			    width: 100%;
+			    padding-left: 0px;
+			    border: none;			    
+			}
 			.reactInit {
 				position: relative;
 				z-index: 5;
