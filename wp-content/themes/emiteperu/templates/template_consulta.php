@@ -85,7 +85,7 @@ get_header();
 						<div class="reactForm">
 							<div class="reactInput inputCrow full rucPrincipalInput">
 								<label>Ruc Emisor</label>
-								<input type="text" name="ruc" id="ruc" class="validRuc"  pattern="\d*" maxlength="12">
+								<input type="tel" name="ruc" id="ruc" class="validRuc" pattern="/^-?\d+\.?\d*$/" maxlength="11">
 								<i class="loader-07"></i>
 							</div>							
 							<div class="error errorRuc" style="display: none;">

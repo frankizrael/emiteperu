@@ -26,19 +26,19 @@ var getKeyCode = function (str) {
 }
 $('#ruc').on('keyup',function(){
 	if (navigator.userAgent.match(/Android/i)) {
-        var inputValue = $('#ruc').val();
-        var charKeyCode = e.keyCode || e.which;
-        if (charKeyCode == 0 || charKeyCode == 229) { 
-            charKeyCode = getKeyCode(inputValue);
-           if (charKeyCode.length > 9) {
+        var leng = $('#ruc').val().length;	
+        //var charKeyCode = e.keyCode || e.which;
+        /*if (charKeyCode == 0 || charKeyCode == 229) { 
+            charKeyCode = getKeyCode(inputValue);*/
+            if (leng > 9) {
 				validRuc();
 			} else {
 				$('.row').addClass('disabled');
 			}
-			if (charKeyCode.length > 10) {
+			if (leng > 10) {
 				return false;
 			}
-        }
+        /*}*/
     } 
 	
 });
