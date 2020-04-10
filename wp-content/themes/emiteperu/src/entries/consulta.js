@@ -12,7 +12,7 @@ $('#fecha').datepicker({
 $('#ruc').on('keypress',function(){
 	var leng = $('#ruc').val().length;	
 	console.log(leng);
-	if (leng > 9) {
+	if (leng > 10) {
 		validRuc();
 	} else {
 		$('.row').addClass('disabled');
