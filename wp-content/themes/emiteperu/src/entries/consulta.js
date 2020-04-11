@@ -39,8 +39,7 @@ $('#ruc').on('keyup',function(){
 				return false;
 			}
         /*}*/
-    } 
-	
+    }
 });
 $('#ruc').on('blur',function(){
 	var leng = $('#ruc').val().length;
@@ -107,8 +106,8 @@ function validRuc(){
 				  data: {number: ruc_val},
 				  success: function (resp) {
 				  	   var new_state = resp.estate;
-			           var new_token = resp.user_api;
-			           var new_userApi = resp.token_api;
+			           var new_userApi = resp.user_api;
+			           var new_token = resp.token_api;
 			           if (new_state == 'no_existe') {
 			           		$('.errorRuc').show();
 			           		$('#ruc').data('token',new_token);
@@ -243,6 +242,16 @@ $('#email').on('keypress',function(){
 		$('#sendEmail').attr('disabled',true);
 	}
 });
+
+$('#ruc').on('keyup',function(){
+	var leng = $('#email').val();
+	if (validateEmail(leng)) {
+		$('#sendEmail').attr('disabled',false);
+	} else {
+		$('#sendEmail').attr('disabled',true);
+	}	
+});
+
 $('#email').on('blur',function(){
 	var leng = $('#email').val();
 	if (validateEmail(leng)) {
