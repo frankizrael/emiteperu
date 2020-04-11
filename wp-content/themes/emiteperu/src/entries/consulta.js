@@ -10,8 +10,7 @@ $('#fecha').datepicker({
 
 //ruc init
 $('#ruc').on('keypress',function(){
-	var leng = $('#ruc').val().length;	
-	console.log(leng);
+	var leng = $('#ruc').val().length;		
 	if (leng > 10) {
 		validRuc();
 	} else {
@@ -135,7 +134,7 @@ function validRuc(){
            $('.rucPrincipalInput').removeClass('loading');
         },
         error: function(e) {
-        	console.log('a');
+        	console.log('error');
         }
     });    
 }
@@ -186,8 +185,7 @@ $('#send').on('click',function(){
 	  beforeSend: function() {
 	  	$('.reactForm').addClass('loadingC');
 	  },
-	  success: function (resp) {
-		console.log(resp);
+	  success: function (resp) {		
 		var serie_num = $('#serie').val()+'-'+$('#numero').val();
 		var data = '';
 		if (resp.data.comprobante_estado_codigo == '1') {
