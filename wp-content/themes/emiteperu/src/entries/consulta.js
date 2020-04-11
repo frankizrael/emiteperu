@@ -221,6 +221,7 @@ $('#send').on('click',function(){
 	  	$('#reactCont').html('');
 	  	if (resp.data.comprobante_estado_codigo == '0' || resp.data.comprobante_estado_codigo == '-') {
 	  		$('#reactCont').append('<div class="contenido_list"><div class="msj">EL COMPROBANTE NO FUE INFORMADO A SUNAT, VERIFIQUE SUS DATOS</div></div>');	
+			$('.sendspecial').hide();	
 	  	} else {
 	  		$('#reactCont').append(template);
 	  	}

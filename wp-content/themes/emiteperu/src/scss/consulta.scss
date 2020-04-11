@@ -169,12 +169,20 @@
     margin-top: 40px;
     border-top: solid 1px black;
     padding-top: 10px;
+    @include maxw(table_min) {
+	    flex-wrap: wrap;
+	}
     .sendc {
 	    display: flex;
 	    justify-content: space-between;
 	    align-items: flex-end;
 	    .row {
 		    width: calc(100% - 200px);
+		    @include maxw(table_min) {
+			    width: 100%;
+			    flex: none;
+			    margin-bottom: 10px;
+			}
 		}
 	    button {
 		    padding: 10px 10px;
