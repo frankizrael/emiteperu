@@ -115,5 +115,12 @@
 	</div>
 </footer>
 <?php wp_footer() ?>
+<script type="text/javascript">
+	let jQinit = jQuery('.self_form__init__back');
+	for (let i=0;i<jQinit.length;i++) {
+		let data = jQinit.eq(i).attr('data');
+		jQinit.eq(i).find('.product input').val(data);
+	}
+</script>
 </body>
 </html>
